@@ -1,3 +1,5 @@
+-- Изначально данные в таблице удовлетворяли 1НФ, то есть были атомары
+-- для того что бы соответствовать 2НФ собираем все данные по клиентам в одну таблицу
 create table customers (
 customer_id int
 ,first_name varchar
@@ -10,7 +12,7 @@ customer_id int
 ,deceased_indicator varchar
 ,owns_car varchar
 );
-
+-- так же для соответствия 2НФ формируем отдельно таблицу адрессов так как по одному адресу могут проживать разные клиенты 
 create table addresses (
 address_id int
 ,customer_id int
@@ -20,7 +22,7 @@ address_id int
 ,country varchar
 ,property_valuation int
 );
-
+-- каждая транцакция произведена по отдельности, не обнаружил в исходных данных чтобы в одной транзакции пресутствовало болше одного product_id
 create table transactions (
 transaction_id int
 ,product_id int
@@ -29,7 +31,7 @@ transaction_id int
 ,online_order boolean
 ,order_status varchar
 );
-
+-- для соответствия 3 нф информации о продукции разделил на две таблици products и brands
 create table products (
 product_id int
 ,brand_id int
