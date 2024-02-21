@@ -1,13 +1,3 @@
-
-
-create table client_transaction (
-transaction_id int
-,tx_dataime timestamp
-,customet_id int
-,terminal_id int
-,tx_amount float8
-)
-
 create table customers (
 customer_id int
 ,first_name varchar
