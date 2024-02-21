@@ -48,7 +48,7 @@ brand_id int
 
 select * from products;
 
-
+-- создаю временную таблицу для того что бы удалить дублированные строки
 create table temp_products as
 select distinct on (product_id) *
 from products
